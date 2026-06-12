@@ -1,5 +1,6 @@
 # ML-KEM with AI
 
+
 This directory contains a collection of experiments, prompts, and evaluations focused on the capabilities of various Large Language Models (LLMs) to understand, explain, and implement **ML-KEM** (Module-Lattice-based Key Encapsulation Mechanism), also known as **Kyber**.
 
 ML-KEM is the NIST standard for post-quantum key exchange, designed to secure communications against potential attacks from future quantum computers.
@@ -25,3 +26,16 @@ To explore the results, simply open the `.md` files. Most files follow a pattern
 - **Prompt**: The specific question asked to the AI.
 - **Thought Process**: The internal reasoning of the model (where available).
 - **Response**: The final technical explanation or code snippet provided by the AI.
+
+## Bonus
+
+We asked copilot to generate this readme for the project with Gemma 4 31b.[The run took 30 minutes on Macbook M3 Pro 36gb.](bonus/readme.md)
+
+Check out the details in [bonus directory](bonus/readme.md).
+
+
+#### Agent UI:
+![Agent execution UI screenshot](bonus/copilot-agent.png)
+
+#### Context uage:
+![Context usage - 22.2k](bonus/context-usage.png)
