@@ -28,6 +28,9 @@ Write a nice readme for this directory ml-kem-directory.
 
 ### logs
 
+![alt text](server-terminal.png)
+
+```sh
 Using cached model: mlx-community/gemma-4-31B-it-4bit, Adapter: None
 2026-06-12 22:00:11,380 - DEBUG - chat/completions request: model=mlx-community/gemma-4-31B-it-4bit images=0 audio=0 max_tokens=2048 temp=0.1 stream=True
 INFO:     127.0.0.1:55900 - "POST /v1/chat/completions HTTP/1.1" 200 OK
@@ -48,3 +51,4 @@ Using cached model: mlx-community/gemma-4-31B-it-4bit, Adapter: None
 INFO:     127.0.0.1:55900 - "POST /v1/chat/completions HTTP/1.1" 200 OK
 2026-06-12 22:30:56,966 - DEBUG - chat/completions stream done: tokens=163 total_time=424.44s
 Stream finished, cleared cache.
+```
