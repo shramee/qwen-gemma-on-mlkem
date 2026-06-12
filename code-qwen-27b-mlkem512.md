@@ -1,6 +1,7 @@
 mlx_lm.generate --model mlx-community/Qwen3.6-27B-4bit \
 --prompt "implement well documented ML-KEM-512 in Python" \
 --max-tokens 20480 --verbose T                             
+
 Fetching 14 files: 100%|███████████████████████████████████████████████████████████████| 14/14 [00:00<00:00, 10955.27it/s]
 Download complete: : 0.00B [00:00, ?B/s]                                                           | 0/14 [00:00<?, ?it/s]
 ==========
@@ -795,15 +796,15 @@ if __name__ == "__main__":
 ## 📚 Documentation & Design Notes
 
 ### Architecture Alignment with FIPS 203
-| Component | FIPS Section | Implementation Notes |
-|-----------|--------------|----------------------|
-| Parameters | §5 | Hardcoded for ML-KEM-512 (k=2, η1=3, η2=2, du=10, dv=4) |
-| Hash Functions | §6 | Uses `hashlib` with exact domain separation bytes |
-| Sampling | §7 | CBSD for errors, uniform rejection for public matrix |
-| Compression | §8 | Bit-packing matches spec's little-endian format |
-| KeyGen | §9.1 | Follows exact seed expansion and matrix generation |
-| Enc/Dec | §9.2-9.3 | Implements re-encryption check for decapsulation |
-| NTT | Appendix A | Cooley-Tukey style with bit-reversal permutation |
+| Component      | FIPS Section | Implementation Notes                                    |
+| -------------- | ------------ | ------------------------------------------------------- |
+| Parameters     | §5           | Hardcoded for ML-KEM-512 (k=2, η1=3, η2=2, du=10, dv=4) |
+| Hash Functions | §6           | Uses `hashlib` with exact domain separation bytes       |
+| Sampling       | §7           | CBSD for errors, uniform rejection for public matrix    |
+| Compression    | §8           | Bit-packing matches spec's little-endian format         |
+| KeyGen         | §9.1         | Follows exact seed expansion and matrix generation      |
+| Enc/Dec        | §9.2-9.3     | Implements re-encryption check for decapsulation        |
+| NTT            | Appendix A   | Cooley-Tukey style with bit-reversal permutation        |
 
 ### Key Implementation Choices
 1. **Pure Python**: No external dependencies beyond `hashlib` and `struct`
@@ -813,13 +814,13 @@ if __name__ == "__main__":
 5. **Byte Packing**: Follows exact little-endian, 12-bit coefficient encoding
 
 ### Limitations vs Production
-| Aspect | This Implementation | Production (e.g., liboqs) |
-|--------|---------------------|---------------------------|
-| Timing | Variable-time operations | Constant-time guarantees |
-| Memory | Python object overhead | Flat C arrays, cache-aware |
-| NTT | Python loops | AVX2/NEON intrinsics |
-| Sampling | Simplified rejection | Optimized bit-slicing |
-| Security | Educational only | FIPS 140-3 validated |
+| Aspect   | This Implementation      | Production (e.g., liboqs)  |
+| -------- | ------------------------ | -------------------------- |
+| Timing   | Variable-time operations | Constant-time guarantees   |
+| Memory   | Python object overhead   | Flat C arrays, cache-aware |
+| NTT      | Python loops             | AVX2/NEON intrinsics       |
+| Sampling | Simplified rejection     | Optimized bit-slicing      |
+| Security | Educational only         | FIPS 140-3 validated       |
 
 ### Testing & Verification
 ```bash

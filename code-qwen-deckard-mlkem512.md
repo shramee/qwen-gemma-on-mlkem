@@ -1,4 +1,9 @@
-Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files: 100%|██████████| 11/11 [00:00<00:00, 9900.72it/s]
+mlx_lm.generate --model "ggolani/Qwen3.6-40B-Claude-4.6-Opus-Deckard-Heretic-Uncensored-Thinking-mlx-4Bit" \
+--prompt "implement well documented ML-KEM-512 in Python" \
+--max-tokens 20480 --verbose T
+
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]
+Fetching 11 files: 100%|██████████| 11/11 [00:00<00:00, 9900.72it/s]
 ==========
 The user is asking for a well-documented implementation of ML-KEM-512 in Python. ML-KEM (Module-based Key Encapsulation Mechanism) is the NIST Post-Quantum Cryptography standard, formerly known as Kyber. ML-KEM-512 is the medium security level variant (corresponding to Kyber512).
 

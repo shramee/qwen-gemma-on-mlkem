@@ -1,4 +1,8 @@
-Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files: 100%|██████████| 11/11 [00:00<00:00, 15602.75it/s]
+mlx_lm.generate --model "mlx-community/gemma-4-31B-it-4bit" \         --prompt "implement well documented ML-KEM-512 in Python" \
+--max-tokens 20480 --verbose T
+
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]
+Fetching 11 files: 100%|██████████| 11/11 [00:00<00:00, 15602.75it/s]
 ==========
 <|channel>thought
 The objective is to implement ML-KEM-512 (Module-Lattice-based Key Encapsulation Mechanism), which is the standardized version of Kyber, in Python. It needs to be well-documented.
